@@ -17,18 +17,18 @@ change this form 1 to -1 to reverse servos
 pwm = Adafruit_PCA9685.PCA9685()
 pwm.set_pwm_freq(50)
 
-init_pwm0 = 300
-init_pwm1 = 300
+init_pwm0 = 325
+init_pwm1 = 400
 init_pwm2 = 300
-init_pwm3 = 300
+init_pwm3 = 200
 
 init_pwm4 = 300
 init_pwm5 = 300
 init_pwm6 = 300
-init_pwm7 = 300
+init_pwm7 = 400
 
-init_pwm8 = 300
-init_pwm9 = 300
+init_pwm8 = 280
+init_pwm9 = 200
 init_pwm10 = 300
 init_pwm11 = 300
 
@@ -51,8 +51,8 @@ class ServoCtrl(threading.Thread):
 		self.lastPos = [300,300,300,300, 300,300,300,300 ,300,300,300,300 ,300,300,300,300]
 		self.ingGoal = [300,300,300,300, 300,300,300,300 ,300,300,300,300 ,300,300,300,300]
 		# self.maxPos  = [560,560,560,560, 560,560,560,560 ,560,560,560,560 ,560,560,560,560]
-		self.maxPos  = [520,520,520,520, 520,520,520,520 ,520,520,520,520 ,520,520,520,520]
-		self.minPos  = [100,100,100,100, 100,100,100,100 ,100,100,100,100 ,100,100,100,100]
+		self.maxPos  = [450,480,450,420, 520,520,420,500 ,450,480,520,520 ,520,520,520,520]
+		self.minPos  = [150,120,150,120, 100,100,120,120 ,150,120,100,100 ,100,100,100,100]
 		self.scSpeed = [0,0,0,0, 0,0,0,0 ,0,0,0,0 ,0,0,0,0]
 
 		self.ctrlRangeMax = 520

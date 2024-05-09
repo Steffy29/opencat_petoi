@@ -61,6 +61,7 @@ curpath = os.path.realpath(__file__)
 thisPath = "/" + os.path.dirname(curpath)
 
 def servoPosInit():
+	print('servoPosInit')
 	scGear.initConfig(2,init_pwm2,1)
 	P_sc.initConfig(1,init_pwm1,1)
 	T_sc.initConfig(0,init_pwm0,1)
@@ -163,7 +164,6 @@ def robotCtrl(command_input, response):
 		direction_command = 'stand'
 		move.commandInput(direction_command)
 
-
 	elif 'left' == command_input:
 		turn_command = 'left'
 		move.commandInput(turn_command)
@@ -176,7 +176,6 @@ def robotCtrl(command_input, response):
 		turn_command = 'no'
 		move.commandInput(turn_command)
 
-
 	elif 'lookleft' == command_input:
 		P_sc.singleServo(12, 1, 7)
 
@@ -185,7 +184,6 @@ def robotCtrl(command_input, response):
 
 	elif 'LRstop' in command_input:
 		P_sc.stopWiggle()
-
 
 	elif 'up' == command_input:
 		T_sc.singleServo(13, -1, 7)
@@ -220,7 +218,6 @@ def configPWM(command_input, response):
 		for i in range(0,16):
 			init_pwm[i] = 300
 			replace_num("init_pwm%d = "%numServo, init_pwm[numServo])
-
 
 
 def update_code():
@@ -410,7 +407,7 @@ if __name__ == '__main__':
 	flask_app.startthread()
 
 	try:
-		RL=robotLight.RobotLight()
+		RL = robotLight.RobotLight()
 		RL.start()
 		RL.breath(70,70,255)
 	except:
